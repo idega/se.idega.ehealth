@@ -1,5 +1,5 @@
 /*
- * $Id: PatientAcceptanceAgreement.java,v 1.1 2005/10/25 06:17:36 tryggvil Exp $
+ * $Id: PatientAcceptanceAgreement.java,v 1.2 2005/10/25 07:40:56 tryggvil Exp $
  * Created on 24.10.2005 in project se.idega.ehealth
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -10,29 +10,24 @@
 package se.idega.ehealth.presentation;
 
 import java.io.IOException;
-import java.util.Map;
 import javax.faces.component.html.HtmlCommandButton;
 import javax.faces.component.html.HtmlForm;
 import javax.faces.context.FacesContext;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.ActionListener;
-import javax.servlet.http.HttpServletResponse;
 import se.idega.ehealth.business.PatientLogicBean;
 import com.idega.presentation.IWBaseComponent;
-import com.idega.presentation.Page;
-import com.idega.presentation.PresentationObject;
-import com.idega.presentation.PresentationObjectUtil;
 
 
 /**
  * <p>
  * A UI Component to display the "Agreement" that a patient has to accept before being created as a user.
  * </p>
- *  Last modified: $Date: 2005/10/25 06:17:36 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/10/25 07:40:56 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class PatientAcceptanceAgreement extends IWBaseComponent implements ActionListener{
 
@@ -228,6 +223,7 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 		values[1] = personalId;
 		values[2] = givenName;
 		values[3] = surName;
+		values[4] = uriToRedirectTo;
 		return values;
 	}
 	
@@ -240,5 +236,6 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 		personalId = (String)values[1];
 		givenName = (String)values[2];
 		surName = (String)values[3];
+		uriToRedirectTo = (String)values[4];
 	}
 }
