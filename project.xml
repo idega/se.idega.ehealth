@@ -54,6 +54,39 @@
         <eclipse.dependency>true</eclipse.dependency>
       </properties>
     </dependency>  
+
+
+   <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis-saaj</artifactId>
+            <version>1.2.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency>   
+
+  
+   <dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis</artifactId>
+            <version>1.2.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency>
+  
+  
+  	<dependency>
+            <groupId>axis</groupId>
+            <artifactId>axis-jaxrpc</artifactId>
+            <version>1.2.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency> 
   
   </dependencies>
 </project>
