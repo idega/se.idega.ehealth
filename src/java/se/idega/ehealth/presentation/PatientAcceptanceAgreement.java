@@ -1,5 +1,5 @@
 /*
- * $Id: PatientAcceptanceAgreement.java,v 1.5 2005/10/26 15:30:16 tryggvil Exp $
+ * $Id: PatientAcceptanceAgreement.java,v 1.6 2005/10/26 17:11:30 tryggvil Exp $
  * Created on 24.10.2005 in project se.idega.ehealth
  * 
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -26,10 +26,10 @@ import com.idega.presentation.ui.BackButton;
  * A UI Component to display the "Agreement" that a patient has to accept before
  * being created as a user.
  * </p>
- * Last modified: $Date: 2005/10/26 15:30:16 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/10/26 17:11:30 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class PatientAcceptanceAgreement extends IWBaseComponent implements ActionListener {
 
@@ -37,7 +37,7 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 	static String BUNDLE_IDENTIFIER = "se.idega.ehealth";
 	//localization keys
 	static String ACCEPT_KEY = "patientacceptance.accept";
-	static String NOT_ACCEPT_KEY = "patientacceptance.accept";
+	static String NOT_ACCEPT_KEY = "patientacceptance.not_accept";
 	//parameters
 	static String PARAM_GIVEN_NAME = "nbs_given_name";
 	static String PARAM_SURNAME = "nbs_surname";
@@ -134,8 +134,7 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 		HtmlCommandButton acceptButton = new HtmlCommandButton();
 		acceptButton.setValue(iwrb.getLocalizedString(ACCEPT_KEY, "I accept"));
 		acceptButton.addActionListener(this);
-		BackButton button = new BackButton();
-		button.setValue(iwrb.getLocalizedString(NOT_ACCEPT_KEY, "I do not accept"));
+		BackButton button = new BackButton(iwrb.getLocalizedString(NOT_ACCEPT_KEY, "I do not accept"));
 		form.getChildren().add(acceptButton);
 		form.getChildren().add(button);
 	}
