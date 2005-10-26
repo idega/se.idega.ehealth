@@ -1,5 +1,5 @@
 /*
- * $Id: PatientAcceptanceAgreement.java,v 1.2 2005/10/25 07:40:56 tryggvil Exp $
+ * $Id: PatientAcceptanceAgreement.java,v 1.3 2005/10/26 11:47:08 tryggvil Exp $
  * Created on 24.10.2005 in project se.idega.ehealth
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -24,10 +24,10 @@ import com.idega.presentation.IWBaseComponent;
  * <p>
  * A UI Component to display the "Agreement" that a patient has to accept before being created as a user.
  * </p>
- *  Last modified: $Date: 2005/10/25 07:40:56 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/10/26 11:47:08 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class PatientAcceptanceAgreement extends IWBaseComponent implements ActionListener{
 
@@ -128,9 +128,8 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 	}
 	
 	
-	public void initializeContent(){
+	public void initializeComponent(FacesContext context){
 		
-		FacesContext context = FacesContext.getCurrentInstance();
 		String prmGivenName = (String) context.getExternalContext().getRequestParameterMap().get("nbs_given_name");
 		String prmSurName = (String) context.getExternalContext().getRequestParameterMap().get("nbs_surname");
 		String prmPersonalId = (String) context.getExternalContext().getRequestParameterMap().get("nbs_personal_id");
