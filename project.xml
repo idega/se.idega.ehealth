@@ -87,6 +87,16 @@
 			<properties>
 			</properties>
 	</dependency> 
+
+  	<dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.0.4</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency> 
   
   </dependencies>
 </project>
