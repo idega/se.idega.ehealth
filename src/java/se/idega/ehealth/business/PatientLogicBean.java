@@ -1,5 +1,5 @@
 /*
- * $Id: PatientLogicBean.java,v 1.1 2005/10/25 06:17:36 tryggvil Exp $
+ * $Id: PatientLogicBean.java,v 1.2 2005/10/26 11:43:21 tryggvil Exp $
  * Created on 25.10.2005 in project se.idega.ehealth
  *
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -19,7 +19,6 @@ import se.idega.util.PIDChecker;
 import com.idega.business.IBOLookup;
 import com.idega.business.IBOLookupException;
 import com.idega.core.accesscontrol.business.AccessController;
-import com.idega.core.accesscontrol.business.LoginBusinessBean;
 import com.idega.core.data.ICApplicationBinding;
 import com.idega.core.data.ICApplicationBindingHome;
 import com.idega.data.IDOLookup;
@@ -42,10 +41,10 @@ import com.idega.util.IWTimestamp;
  * <p>
  * Class to manipulate data about patients registered as users in the system.
  * </p>
- *  Last modified: $Date: 2005/10/25 06:17:36 $ by $Author: tryggvil $
+ *  Last modified: $Date: 2005/10/26 11:43:21 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class PatientLogicBean {
 
@@ -59,7 +58,8 @@ public class PatientLogicBean {
 
 	/**
 	 * <p>
-	 * TODO tryggvil describe method createAndLoginPatient
+	 * Creates a patient user and logs the user into the current FacesContext 
+	 * and returns true if successful. Returns false otherwise.
 	 * </p>
 	 * @param personalId
 	 * @param fullName
@@ -71,7 +71,7 @@ public class PatientLogicBean {
 		// TODO Auto-generated method stub
 		
 		try {
-			User user = createPatient(personalId,givenName,surName);
+			createPatient(personalId,givenName,surName);
 			NBSLoginBusinessBean loginbean = NBSLoginBusinessBean.createNBSLoginBusiness();
 			IWContext iwc = IWContext.getIWContext(context);
 			loginbean.logInByPersonalID(iwc,personalId,false);
@@ -87,7 +87,7 @@ public class PatientLogicBean {
 
 	/**
 	 * <p>
-	 * TODO tryggvil describe method createPatient
+	 * Creates a patient user and puts it into the default "Patient" group.
 	 * </p>
 	 * @param personalId
 	 * @param fullName
@@ -98,7 +98,6 @@ public class PatientLogicBean {
 		GroupBusiness gb = (GroupBusiness) IBOLookup.getServiceInstance(getApplicationContext(),GroupBusiness.class);
 		Group patientGroup = getPatientGroup();
 		PIDChecker pidUtil = PIDChecker.getInstance();
-		String displayName = givenName + " " + surName;
 		GenderBusinessBean genderBusiness = (GenderBusinessBean) IBOLookup.getServiceInstance(getApplicationContext(),GenderBusiness.class);
 		Gender maleGender = genderBusiness.getMaleGender();
 		Gender femaleGender = genderBusiness.getFemaleGender();
