@@ -11,6 +11,14 @@
   </classpathentry>
   <classpathentry kind="src" path="/se.idega.block.pki">
   </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/axis/jars/axis-saaj-1.2.1.jar">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/axis/jars/axis-1.2.1.jar">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/axis/jars/axis-jaxrpc-1.2.1.jar">
+  </classpathentry>
+  <classpathentry kind="var" path="MAVEN_REPO/commons-logging/jars/commons-logging-1.0.4.jar">
+  </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/servletapi/jars/servletapi-2.4.jar">
   </classpathentry>
   <classpathentry kind="var" path="MAVEN_REPO/myfaces/jars/myfaces-jsf-api-1.1.0.jar">
