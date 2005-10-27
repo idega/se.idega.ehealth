@@ -31,7 +31,7 @@
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
-        <eclipse.dependency>true</eclipse.dependency>
+        <!--eclipse.dependency>true</eclipse.dependency-->
       </properties>
     </dependency>
     <dependency>
@@ -41,7 +41,7 @@
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
-        <eclipse.dependency>true</eclipse.dependency>
+        <!--eclipse.dependency>true</eclipse.dependency-->
       </properties>
     </dependency>
     <dependency>
@@ -97,6 +97,28 @@
 			<properties>
 			</properties>
 	</dependency> 
+
+	<dependency>
+      <groupId>bundles</groupId>
+      <artifactId>se.carelink.npo</artifactId>
+      <version>SNAPSHOT</version>
+      <type>jar</type>
+      <url>http://www.idega.com/</url>
+      <properties>
+        <eclipse.dependency>true</eclipse.dependency>
+      </properties>
+    </dependency> 
+
+    <dependency>
+      <groupId>bundles</groupId>
+      <artifactId>se.idega.ehealth.npo</artifactId>
+      <version>SNAPSHOT</version>
+      <type>jar</type>
+      <url>http://www.idega.com/</url>
+      <properties>
+        <eclipse.dependency>true</eclipse.dependency>
+      </properties>
+    </dependency>  
   
   </dependencies>
 </project>

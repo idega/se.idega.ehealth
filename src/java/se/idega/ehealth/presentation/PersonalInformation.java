@@ -5,7 +5,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import se.idega.ehealth.business.dataprovider.DataProvider;
 import se.idega.ehealth.business.dataprovider.DataProviderFactory;
-import se.idega.ehealth.business.dataprovider.implementations.NPODataProvider;
 import se.idega.ehealth.business.dataprovider.valueobj.PersonalInfo;
 import com.idega.presentation.IWBaseComponent;
 import com.idega.presentation.IWContext;
@@ -19,10 +18,10 @@ import com.idega.presentation.text.Text;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/10/26 18:30:48 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/10/27 12:39:55 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.3 $
  */
 public class PersonalInformation extends IWBaseComponent
 {
