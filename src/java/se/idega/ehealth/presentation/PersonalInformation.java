@@ -18,10 +18,10 @@ import com.idega.presentation.text.Text;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/10/27 12:39:55 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/10/28 09:06:33 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class PersonalInformation extends IWBaseComponent
 {
@@ -39,11 +39,16 @@ public class PersonalInformation extends IWBaseComponent
             personId = "191212121212";
         }
         PersonalInfo i = p.readPersonalInfo(personId);
+        
+        
+        Text t = new Text();
+        t.addToText("<div class=\"form-left\">");
+        add(t);        
         Strong s = new Strong();
         s.add(i.getFirstname() + " " + i.getSurname());
         add(s);
         add(new Break());
-        Text t = new Text();
+        t = new Text();
         t.addToText(i.getAddress());
         add(t);
         add(new Break());
@@ -58,6 +63,9 @@ public class PersonalInformation extends IWBaseComponent
         s = new Strong();
         s.add(i.getPersonalId());
         add(s);
+        t = new Text();
+        t.addToText("</div>");
+        add(t);        
     }
 
     private String readPersonId()
