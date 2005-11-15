@@ -1,5 +1,5 @@
 /*
- * $Id: PatientAcceptanceAgreement.java,v 1.6 2005/10/26 17:11:30 tryggvil Exp $
+ * $Id: PatientAcceptanceAgreement.java,v 1.7 2005/11/15 23:52:35 tryggvil Exp $
  * Created on 24.10.2005 in project se.idega.ehealth
  * 
  * Copyright (C) 2005 Idega Software hf. All Rights Reserved.
@@ -26,10 +26,10 @@ import com.idega.presentation.ui.BackButton;
  * A UI Component to display the "Agreement" that a patient has to accept before
  * being created as a user.
  * </p>
- * Last modified: $Date: 2005/10/26 17:11:30 $ by $Author: tryggvil $
+ * Last modified: $Date: 2005/11/15 23:52:35 $ by $Author: tryggvil $
  * 
  * @author <a href="mailto:tryggvil@idega.com">tryggvil</a>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class PatientAcceptanceAgreement extends IWBaseComponent implements ActionListener {
 
@@ -191,7 +191,7 @@ public class PatientAcceptanceAgreement extends IWBaseComponent implements Actio
 	 * @see javax.faces.component.UIComponentBase#saveState(javax.faces.context.FacesContext)
 	 */
 	public Object saveState(FacesContext ctx) {
-		Object values[] = new Object[4];
+		Object values[] = new Object[5];
 		values[0] = super.saveState(ctx);
 		values[1] = personalId;
 		values[2] = givenName;
