@@ -8,5 +8,17 @@
 	<component>
 		<component-type>PersonalInformation</component-type>
 		<component-class>se.idega.ehealth.presentation.PersonalInformation</component-class>
-	</component>	    
+	</component>	  
+
+	<component>
+		<component-type>Referrals</component-type>
+		<component-class>se.idega.ehealth.presentation.Referrals</component-class>
+	</component>	  
+	
+	<managed-bean>
+		<description></description>
+		<managed-bean-name>ReferralsBean</managed-bean-name>
+		<managed-bean-class>se.idega.ehealth.presentation.beans.ReferralsBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>		  
 </faces-config>
