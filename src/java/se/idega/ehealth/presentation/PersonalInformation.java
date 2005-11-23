@@ -6,6 +6,7 @@ import org.apache.commons.logging.LogFactory;
 import se.idega.ehealth.business.dataprovider.DataProvider;
 import se.idega.ehealth.business.dataprovider.DataProviderFactory;
 import se.idega.ehealth.business.dataprovider.valueobj.PersonalInfo;
+import se.idega.ehealth.presentation.lib.Utils;
 import com.idega.idegaweb.IWResourceBundle;
 import com.idega.presentation.IWBaseComponent;
 import com.idega.presentation.IWContext;
@@ -19,10 +20,10 @@ import com.idega.presentation.text.Text;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/11/15 13:34:36 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/11/23 15:44:10 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.5 $
+ * @version $Revision: 1.6 $
  */
 public class PersonalInformation extends IWBaseComponent
 {
@@ -36,15 +37,8 @@ public class PersonalInformation extends IWBaseComponent
     {
         DataProviderFactory f = new DataProviderFactory();
         DataProvider p = f.createDataProvider();
-        String personId = readPersonId();
-        if (personId == null)
-        {
-            // for testing purposes and for development environment we will use id 191212121212
-            personId = "191212121212";
-           // personId = "188803099368";
-        }
+        String personId = Utils.readPersonId();       
         PersonalInfo i = p.readPersonalInfo(personId);
-        
         
         FacesContext context = FacesContext.getCurrentInstance();
         IWContext iwContext = IWContext.getIWContext(context);
@@ -77,23 +71,5 @@ public class PersonalInformation extends IWBaseComponent
         t = new Text();
         t.addToText("</div>");
         add(t);        
-    }
-
-    private String readPersonId()
-    {
-        String personId = null;
-        try
-        {
-            FacesContext context = FacesContext.getCurrentInstance();
-            IWContext iwContext = IWContext.getIWContext(context);
-            personId = iwContext.getCurrentUser().getPersonalID();
-        }
-        catch (Throwable ex)
-        {
-            log.warn("Unable to read Personal Id from IWContext", ex);
-        }
-        return personId;
-    }
-    
-   
+    }       
 }

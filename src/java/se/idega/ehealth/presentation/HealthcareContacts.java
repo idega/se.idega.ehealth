@@ -1,21 +1,11 @@
 package se.idega.ehealth.presentation;
 
-import java.util.ArrayList;
-import java.util.List;
-import javax.faces.FactoryFinder;
-import javax.faces.application.ApplicationFactory;
-import javax.faces.component.UIColumn;
 import javax.faces.component.html.HtmlDataTable;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.component.html.HtmlOutputText;
 import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
-import javax.faces.model.DataModel;
-import javax.faces.model.DataModelEvent;
-import javax.faces.model.DataModelListener;
-import javax.faces.model.ListDataModel;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import se.idega.ehealth.business.dataprovider.DataProvider;
@@ -28,8 +18,6 @@ import com.idega.presentation.text.Strong;
 import com.idega.presentation.text.Text;
 
 
-
-
 /**
  * 
  * <p>
@@ -38,14 +26,24 @@ import com.idega.presentation.text.Text;
  *  Last modified: $Date: 2005/11/23 15:44:10 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.2 $
+ * @version $Revision: 1.1 $
  */
-public class Referrals extends IWBaseComponent
+public class HealthcareContacts extends IWBaseComponent
 {
     private static Log log = LogFactory.getLog(Referrals.class);
 
     public void initializeContent()
-    { 
+    {
+        DataProviderFactory f = new DataProviderFactory();
+        DataProvider p = f.createDataProvider();
+        String personId = readPersonId();
+        if (personId == null)
+        {
+            // for testing purposes and for development environment we will use id 191212121212
+            personId = "191212121212";
+           // personId = "188803099368";
+        }
+        p.readReferalls(personId);  
         
         // <div class="form_style">
         
@@ -74,7 +72,7 @@ public class Referrals extends IWBaseComponent
         HtmlOutputText hcareUnit = new HtmlOutputText();
         hcareUnit.setValue("Vardenhet ");
         HtmlOutputText hcGiver = new HtmlOutputText();
-        hcGiver.setValue("Vardgivare ");
+        hcGiver.setValue("Medicinsk kontaktperson ");
         
         HtmlPanelGroup header1 = new HtmlPanelGroup();
         HtmlPanelGroup header2 = new HtmlPanelGroup();
@@ -96,62 +94,39 @@ public class Referrals extends IWBaseComponent
         headtable.getChildren().add(header1);
         headtable.getChildren().add(header2);
         headtable.getChildren().add(header3);
-        add(headtable);
+        add(headtable);       
         
-        // div class="cc-iframe">
+ 
         
-        t = new Text();
-        t.addToText("<div class='cc-iframe'>");
-        add(t);        
-        
-        // person_table_iframe
-        FacesContext facesContext = FacesContext.getCurrentInstance();
-        HtmlDataTable table2 = (HtmlDataTable)facesContext.getApplication().createComponent(HtmlDataTable.COMPONENT_TYPE);
-        
-        UIColumn columnComponent1 = new UIColumn();
-        UIColumn columnComponent2 = new UIColumn();
-        UIColumn columnComponent3 = new UIColumn();
-        
-        table2.getChildren().add(columnComponent1);
-        table2.getChildren().add(columnComponent2);
-        table2.getChildren().add(columnComponent3);
-        
+        HtmlDataTable table2 = new HtmlDataTable();
         table2.setCellpadding("0");
         table2.setCellspacing("0");
         table2.setStyleClass("person_table_iframe");
         table2.setRowClasses("odd,even");
         table2.setColumnClasses("first,middle,last");
-        //table2.setRows(2);
-        
-        ApplicationFactory factory = (ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY);
-        ValueBinding vb = factory.getApplication().createValueBinding("#{ReferralsBean.referrals}");        
-                       
-        table2.setValueBinding("value",vb);
         
         add(table2);
-        
-        // person_table detailed
-
-        HtmlDataTable table3 = new HtmlDataTable();
-        table3.setCellpadding("0");
-        table3.setCellspacing("0");
-        table3.setRowClasses("odd,even");
-        table3.setStyleClass("person_table detailed");
-        
-        add(table3);        
-        
-        // </div>
-        t = new Text();
-        t.addToText("</div>");
-        add(t);        
-        
         // </div>
         t = new Text();
         t.addToText("</div>");
         add(t);
     }
 
-
+    private String readPersonId()
+    {
+        String personId = null;
+        try
+        {
+            FacesContext context = FacesContext.getCurrentInstance();
+            IWContext iwContext = IWContext.getIWContext(context);
+            personId = iwContext.getCurrentUser().getPersonalID();
+        }
+        catch (Throwable ex)
+        {
+            log.warn("Unable to read Personal Id from IWContext", ex);
+        }
+        return personId;
+    }
     
    
 }

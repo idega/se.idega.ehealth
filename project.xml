@@ -119,6 +119,16 @@
         <eclipse.dependency>true</eclipse.dependency>
       </properties>
     </dependency>  
+
+	<dependency>
+		<groupId>bundles</groupId>
+		<artifactId>org.apache.myfaces</artifactId>
+		<version>1.0.9</version>
+		<!--<version>SNAPSHOT</version>-->
+		<type>iwbar</type>
+		<url>http://www.myfaces.org</url>
+		<properties/>
+	</dependency>  
   
   </dependencies>
 </project>
