@@ -14,6 +14,18 @@
 		<component-type>Referrals</component-type>
 		<component-class>se.idega.ehealth.presentation.Referrals</component-class>
 	</component>	  
+
+	<component>
+		<component-type>HealthcareContacts</component-type>
+		<component-class>se.idega.ehealth.presentation.HealthcareContacts</component-class>
+	</component>	  
+
+	<managed-bean>
+		<description></description>
+		<managed-bean-name>ContactsBean</managed-bean-name>
+		<managed-bean-class>se.idega.ehealth.presentation.beans.ContactsBean</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>		  
 	
 	<managed-bean>
 		<description></description>

@@ -1,57 +1,80 @@
 package se.idega.ehealth.presentation;
 
-import javax.faces.component.html.HtmlDataTable;
+import javax.faces.FactoryFinder;
+import javax.faces.application.ApplicationFactory;
+import javax.faces.component.UIColumn;
+import javax.faces.component.html.HtmlForm;
 import javax.faces.component.html.HtmlGraphicImage;
 import javax.faces.component.html.HtmlOutputText;
-import javax.faces.component.html.HtmlPanelGrid;
 import javax.faces.component.html.HtmlPanelGroup;
 import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import se.idega.ehealth.business.dataprovider.DataProvider;
-import se.idega.ehealth.business.dataprovider.DataProviderFactory;
-import se.idega.ehealth.business.dataprovider.valueobj.PersonalInfo;
 import com.idega.presentation.IWBaseComponent;
-import com.idega.presentation.IWContext;
-import com.idega.presentation.text.Break;
-import com.idega.presentation.text.Strong;
 import com.idega.presentation.text.Text;
-
+import org.apache.myfaces.component.html.ext.HtmlDataTable;
+import org.apache.myfaces.custom.sortheader.HtmlCommandSortHeader;
 
 /**
  * 
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/11/23 15:44:10 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/12/07 16:29:38 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.1 $
+ * @version $Revision: 1.2 $
  */
 public class HealthcareContacts extends IWBaseComponent
 {
-    private static Log log = LogFactory.getLog(Referrals.class);
+    private static Log log = LogFactory.getLog(HealthcareContacts.class);
 
     public void initializeContent()
-    {
-        DataProviderFactory f = new DataProviderFactory();
-        DataProvider p = f.createDataProvider();
-        String personId = readPersonId();
-        if (personId == null)
-        {
-            // for testing purposes and for development environment we will use id 191212121212
-            personId = "191212121212";
-           // personId = "188803099368";
-        }
-        p.readReferalls(personId);  
+    {         
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        ApplicationFactory factory = (ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY);
         
+        HtmlForm form = (HtmlForm)facesContext.getApplication().createComponent(HtmlForm.COMPONENT_TYPE);
         // <div class="form_style">
         
         Text t = new Text();
         t.addToText("<div class='form_style'><p>Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext omdet skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande manvill nå ut med.</p>");
-        add(t);        
-               
-        // table headers
+        form.getChildren().add(t);        
+        
+        // table
+        
+        HtmlDataTable table2 = (HtmlDataTable)facesContext.getApplication().createComponent(HtmlDataTable.COMPONENT_TYPE);        
+        table2.setCellpadding("0");
+        table2.setCellspacing("0");
+        
+        table2.setStyleClass("person_table");        
+        table2.setCellpadding("0");
+        table2.setCellspacing("0");        
+        table2.setRowClasses("odd,even");
+        table2.setColumnClasses("first,middle,last");
+        table2.setVar("element");        
+                                
+        ValueBinding vb = factory.getApplication().createValueBinding("#{ContactsBean.elements}");        
+                       
+        table2.setValueBinding("value",vb);
+        
+        
+        HtmlCommandSortHeader header1 = new HtmlCommandSortHeader();
+        header1.setColumnName("strDate");
+        header1.setValue("Datum ");
+        header1.setArrow(true);
+        
+        HtmlCommandSortHeader header2 = new HtmlCommandSortHeader();
+        header2.setColumnName("provider");
+        header2.setValue("Vardenhet ");
+        header1.setArrow(true);
+        
+        HtmlCommandSortHeader header3 = new HtmlCommandSortHeader();
+        header3.setColumnName("unit") ;
+        header3.setValue("Vardgivare ");
+        header1.setArrow(true);
+                
         HtmlGraphicImage img1 = new HtmlGraphicImage();
         img1.setAlt("");
         img1.setStyleClass("table_bullet");
@@ -65,68 +88,55 @@ public class HealthcareContacts extends IWBaseComponent
         HtmlGraphicImage img3 = new HtmlGraphicImage();
         img3.setAlt("");
         img3.setStyleClass("table_bullet");
-        img3.setUrl("/style/table_header_bullet.gif");        
+        img3.setUrl("/style/table_header_bullet.gif");                
         
-        HtmlOutputText textDate = new HtmlOutputText();
-        textDate.setValue("Datum ");
-        HtmlOutputText hcareUnit = new HtmlOutputText();
-        hcareUnit.setValue("Vardenhet ");
-        HtmlOutputText hcGiver = new HtmlOutputText();
-        hcGiver.setValue("Medicinsk kontaktperson ");
+        HtmlPanelGroup headerGroup1 = new HtmlPanelGroup();
+        HtmlPanelGroup headerGroup2 = new HtmlPanelGroup();
+        HtmlPanelGroup headerGroup3 = new HtmlPanelGroup();
         
-        HtmlPanelGroup header1 = new HtmlPanelGroup();
-        HtmlPanelGroup header2 = new HtmlPanelGroup();
-        HtmlPanelGroup header3 = new HtmlPanelGroup();
+        headerGroup1.getChildren().add(header1);
+        headerGroup1.getChildren().add(img1);
+        headerGroup2.getChildren().add(header2);
+        headerGroup2.getChildren().add(img2);
+        headerGroup3.getChildren().add(header3);
+        headerGroup3.getChildren().add(img3);       
         
-        header1.getChildren().add(textDate);
-        header1.getChildren().add(img1);
-        header2.getChildren().add(hcareUnit);
-        header2.getChildren().add(img2);
-        header3.getChildren().add(hcGiver);
-        header3.getChildren().add(img3);                
         
-        HtmlPanelGrid headtable = new HtmlPanelGrid();        
-        headtable.setCellpadding("0");
-        headtable.setCellspacing("0");
-        headtable.setColumns(3);        
-        headtable.setStyleClass("person_table header");
-        headtable.setColumnClasses("table_bullet");
-        headtable.getChildren().add(header1);
-        headtable.getChildren().add(header2);
-        headtable.getChildren().add(header3);
-        add(headtable);       
-        
- 
-        
-        HtmlDataTable table2 = new HtmlDataTable();
-        table2.setCellpadding("0");
-        table2.setCellspacing("0");
-        table2.setStyleClass("person_table_iframe");
-        table2.setRowClasses("odd,even");
-        table2.setColumnClasses("first,middle,last");
-        
-        add(table2);
-        // </div>
-        t = new Text();
-        t.addToText("</div>");
-        add(t);
-    }
+        HtmlOutputText colDate = new HtmlOutputText();
+        colDate.setValueBinding("value",factory.getApplication().createValueBinding("#{element.strDate}"));
 
-    private String readPersonId()
-    {
-        String personId = null;
-        try
-        {
-            FacesContext context = FacesContext.getCurrentInstance();
-            IWContext iwContext = IWContext.getIWContext(context);
-            personId = iwContext.getCurrentUser().getPersonalID();
-        }
-        catch (Throwable ex)
-        {
-            log.warn("Unable to read Personal Id from IWContext", ex);
-        }
-        return personId;
+        HtmlOutputText colProvider = new HtmlOutputText();
+        colProvider.setValueBinding("value",factory.getApplication().createValueBinding("#{element.provider}"));
+        
+        HtmlOutputText colUnit = new HtmlOutputText();
+        colUnit.setValueBinding("value",factory.getApplication().createValueBinding("#{element.unit}"));
+        
+        UIColumn columnComponent1 = new UIColumn();
+        UIColumn columnComponent2 = new UIColumn();
+        UIColumn columnComponent3 = new UIColumn();
+        
+        columnComponent1.setHeader(headerGroup1);
+        columnComponent2.setHeader(headerGroup2);
+        columnComponent3.setHeader(headerGroup3);         
+        
+        columnComponent1.getChildren().add(colDate);
+        columnComponent2.getChildren().add(colUnit);
+        columnComponent3.getChildren().add(colProvider);
+        
+        table2.setValueBinding("sortColumn",factory.getApplication().createValueBinding("#{ContactsBean.sort}"));
+        table2.setValueBinding("sortAscending",factory.getApplication().createValueBinding("#{ContactsBean.ascending}"));
+        table2.setSortAscending(true);
+        
+        table2.getChildren().add(columnComponent1);
+        table2.getChildren().add(columnComponent2);
+        table2.getChildren().add(columnComponent3);        
+        
+        table2.setRowOnClick("this.bgColor='#5683B2'");
+        table2.setRowOnMouseOver("this.bgColor='#5683B2'");      
+        
+        form.getChildren().add(table2);
+               
+        add(form);
     }
-    
    
 }

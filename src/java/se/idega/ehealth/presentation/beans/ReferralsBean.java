@@ -3,50 +3,55 @@ package se.idega.ehealth.presentation.beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.component.html.HtmlOutputText;
-
+import se.idega.ehealth.presentation.valueobjects.ReferralsValueObject;
 
 public class ReferralsBean
 {
-    
+
+    private String sort = "date";
+    private boolean ascending = true;
     private List referrals;
-    
-    
-    public ReferralsBean()
+
+    public boolean getAscending()
     {
-        
-        HtmlOutputText t1 = new HtmlOutputText();
-        t1.setValue("1111111111");
-        HtmlOutputText t2 = new HtmlOutputText();
-        t2.setValue("22222222222");
-        HtmlOutputText t3 = new HtmlOutputText();
-        t3.setValue("3333333333");
-        HtmlOutputText t4 = new HtmlOutputText();
-        t4.setValue("4444444444");
-        HtmlOutputText t5 = new HtmlOutputText();
-        t5.setValue("5555555555");
-        HtmlOutputText t6 = new HtmlOutputText();
-        t6.setValue("66666666666");
-        
-        referrals = new ArrayList();
-        
-        referrals.add(t1);
-        referrals.add(t2);
-        referrals.add(t3);
-        referrals.add(t4);
-        referrals.add(t5);
-        referrals.add(t6);
-        
+        return ascending;
     }
 
+    public void setAscending(boolean ascending)
+    {
+        this.ascending = ascending;
+    }
 
-    
+    public String getSort()
+    {
+        return sort;
+    }
+
+    public void setSort(String sort)
+    {
+        this.sort = sort;
+    }
+
+    public ReferralsBean()
+    {
+        ReferralsValueObject vo1 = new ReferralsValueObject();
+        vo1.setDate("zzzzzzzzzzz");
+        vo1.setProvider("prov1");
+        vo1.setUnit("unit1");
+        ReferralsValueObject vo2 = new ReferralsValueObject();
+        vo2.setDate("aaaaaaaaaa");
+        vo2.setProvider("prov2");
+        vo2.setUnit("unit2");
+        referrals = new ArrayList();
+        referrals.add(vo1);
+        referrals.add(vo2);
+    }
+
     public List getReferrals()
     {
         return referrals;
     }
 
-
-    
     public void setReferrals(List referrals)
     {
         this.referrals = referrals;
