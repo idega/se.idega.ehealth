@@ -21,10 +21,10 @@ import org.apache.myfaces.component.html.ext.HtmlDataTable;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/12/07 16:29:38 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/12/09 09:50:37 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class Referrals extends IWBaseComponent
 {
@@ -37,9 +37,9 @@ public class Referrals extends IWBaseComponent
         
         // <div class="form_style">
         
-        Text t = new Text();
-        t.addToText("<div class='form_style'><p>Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext omdet skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande manvill nå ut med.</p>");
-        form.getChildren().add(t);        
+        //Text t = new Text();
+        //t.addToText("<div class='form_style'><p>Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext omdet skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande manvill nå ut med.</p>");
+        //form.getChildren().add(t);        
                
         // table headers
         HtmlGraphicImage img1 = new HtmlGraphicImage();
@@ -88,7 +88,7 @@ public class Referrals extends IWBaseComponent
         
         // div class="cc-iframe">
         
-        t = new Text();
+        Text t = new Text();
         t.addToText("<div class='cc-iframe'>");
         form.getChildren().add(t);        
         
