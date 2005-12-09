@@ -21,10 +21,10 @@ import org.apache.myfaces.custom.sortheader.HtmlCommandSortHeader;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/12/09 09:52:44 $ by $Author: mariso $
+ *  Last modified: $Date: 2005/12/09 12:43:55 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 public class HealthcareContacts extends IWBaseComponent
 {
@@ -38,9 +38,9 @@ public class HealthcareContacts extends IWBaseComponent
         HtmlForm form = (HtmlForm)facesContext.getApplication().createComponent(HtmlForm.COMPONENT_TYPE);
         // <div class="form_style">
         
-        //Text t = new Text();
-        //t.addToText("<div class='form_style'><p>Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext omdet skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande manvill nå ut med.</p>");
-        //form.getChildren().add(t);        
+        Text t = new Text();
+        t.addToText("<div class='form_style'><p>Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext omdet skulle vara ngt viktigt meddelande man vill nå ut med. Här kan man ligga in lite informationstext om det skulle vara ngt viktigt meddelande manvill nå ut med.</p>");
+        form.getChildren().add(t);        
         
         // table
         
