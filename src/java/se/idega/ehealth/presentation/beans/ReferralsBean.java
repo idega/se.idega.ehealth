@@ -34,17 +34,7 @@ public class ReferralsBean
 
     public ReferralsBean()
     {
-        ReferralsValueObject vo1 = new ReferralsValueObject();
-        vo1.setDate("zzzzzzzzzzz");
-        vo1.setProvider("prov1");
-        vo1.setUnit("unit1");
-        ReferralsValueObject vo2 = new ReferralsValueObject();
-        vo2.setDate("aaaaaaaaaa");
-        vo2.setProvider("prov2");
-        vo2.setUnit("unit2");
-        referrals = new ArrayList();
-        referrals.add(vo1);
-        referrals.add(vo2);
+        
     }
 
     public List getReferrals()
