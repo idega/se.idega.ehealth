@@ -5,12 +5,12 @@ import java.util.Date;
 import se.idega.ehealth.presentation.constants.EhealthConstants;
 
 
-public class ReferralsValueObject
+public class DiagnosisValueObject
 {
+    private String name;
     private Date date;
-    private String unit="";
-    private String provider="";
-    private String type="";
+    private String doctor;
+    private String unit;
     
     public String getStrDate()
     {
@@ -23,38 +23,34 @@ public class ReferralsValueObject
     {        
     }    
     
-    
-    public String getType()
-    {
-        return type;
-    }
-
-    
-    public void setType(String type)
-    {
-        this.type = type;
-    }
-
-    
     public Date getDate()
     {
         return date;
     }
-    
     
     public void setDate(Date date)
     {
         this.date = date;
     }
     
-    public String getProvider()
+    public String getDoctor()
     {
-        return provider;
+        return doctor;
     }
     
-    public void setProvider(String provider)
+    public void setDoctor(String doctor)
     {
-        this.provider = provider;
+        this.doctor = doctor;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public void setName(String name)
+    {
+        this.name = name;
     }
     
     public String getUnit()

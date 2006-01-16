@@ -21,10 +21,10 @@ import org.apache.myfaces.custom.sortheader.HtmlCommandSortHeader;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2005/12/09 12:43:55 $ by $Author: mariso $
+ *  Last modified: $Date: 2006/01/16 09:35:12 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.4 $
+ * @version $Revision: 1.5 $
  */
 public class HealthcareContacts extends IWBaseComponent
 {
@@ -78,17 +78,17 @@ public class HealthcareContacts extends IWBaseComponent
         HtmlGraphicImage img1 = new HtmlGraphicImage();
         img1.setAlt("");
         img1.setStyleClass("table_bullet");
-        img1.setUrl("/style/table_header_bullet.gif");
+        img1.setUrl("/idegaweb/style/table_header_bullet.gif");
         
         HtmlGraphicImage img2 = new HtmlGraphicImage();
         img2.setAlt("");
         img2.setStyleClass("table_bullet");
-        img2.setUrl("/style/table_header_bullet.gif");
+        img2.setUrl("/idegaweb/style/table_header_bullet.gif");
         
         HtmlGraphicImage img3 = new HtmlGraphicImage();
         img3.setAlt("");
         img3.setStyleClass("table_bullet");
-        img3.setUrl("/style/table_header_bullet.gif");                
+        img3.setUrl("/idegaweb/style/table_header_bullet.gif");                
         
         HtmlPanelGroup headerGroup1 = new HtmlPanelGroup();
         HtmlPanelGroup headerGroup2 = new HtmlPanelGroup();

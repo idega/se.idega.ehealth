@@ -51,10 +51,30 @@
       <type>jar</type>
       <url>http://www.idega.com/</url>
       <properties>
+        <!--eclipse.dependency>true</eclipse.dependency-->
+      </properties>
+    </dependency>  
+
+   <dependency>
+      <groupId>bundles</groupId>
+      <artifactId>se.carelink.npo</artifactId>
+      <version>SNAPSHOT</version>
+      <type>jar</type>
+      <url>http://www.idega.com/</url>
+      <properties>
         <eclipse.dependency>true</eclipse.dependency>
       </properties>
     </dependency>  
 
+   <dependency>
+            <groupId>commons-beanutils</groupId>
+            <artifactId>commons-beanutils</artifactId>
+            <version>1.6.1</version>
+            <type>jar</type>
+            <url>http://www.ibiblio.org/maven</url>
+			<properties>
+			</properties>
+	</dependency>   
 
    <dependency>
             <groupId>axis</groupId>
