@@ -5,9 +5,7 @@
   <comment>
   </comment>
   <projects>
-    <project>com.idega.core</project>
-    <project>se.idega.util</project>
-    <project>se.idega.block.pki</project>
+    <project>se.carelink.npo</project>
   </projects>
   <buildSpec>
     <buildCommand>
