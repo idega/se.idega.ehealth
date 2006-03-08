@@ -8,8 +8,8 @@ import se.idega.ehealth.presentation.constants.EhealthConstants;
 public class ContactsValueObject
 {
     private Date date;
-    private String unit="";
-    private String provider="";       
+    private String unit;
+    private String provider;       
     
     public String getStrDate()
     {

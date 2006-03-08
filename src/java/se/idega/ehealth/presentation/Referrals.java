@@ -21,10 +21,10 @@ import org.apache.myfaces.component.html.ext.HtmlDataTable;
  * <p>
  * TODO Maris_O Describe Type PersonalInformation
  * </p>
- *  Last modified: $Date: 2006/01/16 09:35:12 $ by $Author: mariso $
+ *  Last modified: $Date: 2006/03/08 15:41:08 $ by $Author: mariso $
  * 
  * @author <a href="mailto:Maris_O@idega.com">Maris_O</a>
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
 public class Referrals extends IWBaseComponent
 {
@@ -138,8 +138,8 @@ public class Referrals extends IWBaseComponent
         table2.getChildren().add(columnComponent2);
         table2.getChildren().add(columnComponent3);        
         
-        table2.setRowOnClick("this.bgColor='#5683B2'");
-        table2.setRowOnMouseOver("this.bgColor='#5683B2'");
+        //table2.setRowOnClick("this.bgColor='#5683B2'");
+        //table2.setRowOnMouseOver("this.bgColor='#5683B2'");
 
         table2.getAttributes().put("rowOnMouseOver", "this.bgColor='#5683B2'");
         table2.getAttributes().put("rowOnMouseOut","this.bgColor='#5683B2'");        
